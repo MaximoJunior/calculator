@@ -4,13 +4,11 @@ import './App.css';
 class App extends Component{
   constructor(props){
     super(props);
-     
     this.state = {
        current: "0",
        formula: "",
        result: ""
     }
-
     this.clear = this.clear.bind(this);
     this.input = this.input.bind(this);
     this.inputNumber = this.inputNumber.bind(this);
@@ -73,7 +71,6 @@ class App extends Component{
   }
 
   inputPoint(){
-    console.log("Junior");
      this.setState(state => {
         let current = state.current;
         let formula = state.formula;
@@ -98,28 +95,28 @@ class App extends Component{
 
   render(){
     return (
-      <div className="App">
+      <div className="container">
         <div className="bar"></div>
         <div className="screen">
-             <div className="formula">{this.state.formula}</div>
-             <div className="display" id="display">{this.state.current}</div>
+             <p className="formula">{this.state.formula}</p>
+             <p className="display" id="display">{this.state.current}</p>
         </div>
         <div className="grid-container">
             <Button id="clear" onClick={this.clear} value="AC"/>
-            <Button id="divide" onClick={()=>{this.input("/")}} value="/"/>
-            <Button id="multiply" onClick={()=>{this.input("x")}} value="x"/>
+            <Button id="divide" className="operador" onClick={()=>{this.input("/")}} value="/"/>
+            <Button id="multiply" className="operador" onClick={()=>{this.input("x")}} value="x"/>
             <Button id="seven" onClick={()=>{this.input("7")}} value="7"/>
             <Button id="eight" onClick={()=>{this.input("8")}} value="8"/>
             <Button id="nine" onClick={()=>{this.input("9")}} value="9"/>
-            <Button id="subtract" onClick={()=>{this.input("-")}} value="-"/>
+            <Button id="subtract" className="operador" onClick={()=>{this.input("-")}} value="-"/>
             <Button id="four" onClick={()=>{this.input("4")}} value="4"/>
             <Button id="five" onClick={()=>{this.input("5")}} value="5"/>
             <Button id="six" onClick={()=>{this.input("6")}} value="6"/>
-            <Button id="add" onClick={()=>{this.input("+")}} value="+"/>
+            <Button id="add" className="operador" onClick={()=>{this.input("+")}} value="+"/>
             <Button id="one" onClick={()=>{this.input("1")}} value="1"/>
             <Button id="two" onClick={()=>{this.input("2")}} value="2"/>
             <Button id="three" onClick={()=>{this.input("3")}} value="3"/>
-            <Button id="equals" onClick={()=>{this.cal()}} value="="/>
+            <Button id="equals" className="operador" onClick={()=>{this.cal()}} value="="/>
             <Button id="zero" onClick={()=>{this.input("0")}} value="0"/>
             <Button id="decimal" onClick={()=>{this.inputPoint()}} value="."/>
         </div>
