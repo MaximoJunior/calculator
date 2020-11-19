@@ -86,6 +86,8 @@ class App extends Component{
   }
 
   cal(){
+    if(this.state.result)
+      return;
     this.setState(state =>{
          let formula = state.formula.replace(/^[^\d\-]+|[^\d\.]+$/g, "");
          let result = calcular(formula);
@@ -96,7 +98,6 @@ class App extends Component{
   render(){
     return (
       <div className="container">
-        <div className="bar"></div>
         <div className="screen">
              <p className="formula">{this.state.formula}</p>
              <p className="display" id="display">{this.state.current}</p>
